@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Employee Details</title>
+    {% load static %}
+<link rel="stylesheet" href="{% static 'table.css' %}">
+</head>
+<body>
+<h2 class='head'>The All Employee Datas  available here...</h2>
+
+<table class='redTable'>
+    <tr>
+        <th>Employee ID</th>
+        <th>Employee Name</th>
+        <th>Employee Salary</th>
+        <th>Employee PhoneNumber</th>
+        <th>Employee Address</th>
+    </tr>
+    <tr>
+        {% for e in emp %}
+        <td>{{e.empno}}</td>
+        <td>{{e.empname}}</td>
+        <td>{{e.empsalary}}</td>
+        <td>{{e.empphno}}</td>
+        <td>{{e.empaddress}}</td>
+        <td><a href="/updateemp/{{e.id}}" value="Edit">Edit</a></td>
+        <td><a href="/deleteemp/{{e.id}}" value="Delete">Detele</a></td>
+    </tr>
+    {% endfor %}
+</table> <br><br>
+<button><a href="/addemp">Add New Employee</a></button>
+</body>
+</html>
